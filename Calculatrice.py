@@ -32,9 +32,9 @@ if __name__ == "__main__":
     root = Tk()
     root.configure(background="#984447")
     root.title("Calculatrice By Finoana Randri")
-    root.geometry("385x570")
-    root.minsize(385,570)
-    root.maxsize(385,570)
+    root.geometry("385x600")
+    root.minsize(385,600)
+    root.maxsize(385,600)
 #ici c'est la variable pour stocker les contenus
     equation = StringVar()
 #boite de resultat
@@ -55,7 +55,22 @@ if __name__ == "__main__":
         if colonne ==4:
             colonne=0
             ligne +=1
-        b= Label(root,text="Effacer",bg="#984447",fg="#FFF",height=5,width=12)
+        b= Label(root,text="Effacer",bg="#984447",fg="#FFF",height=5,width=13)
         b.bind("<Button-1>",lambda e: effacer())
         b.grid(columnspan=4)
+    
+    
+         #barre de menu
+
+        menu_bar = Menu(root,bg="white")
+
+        #preminer menu(i love python now but i am beginer  XD FinoanaRandria)
+        file_menu = Menu(menu_bar ,tearoff=0)
+        file_menu.add_command(label="Effacer",command= effacer)
+        file_menu.add_command(label="Quit" ,command=root.quit)  
+        menu_bar.add_cascade(label="Options",menu=file_menu)
+
+        #insertion dans la fenetre
+        root.config(menu=menu_bar)
+
     root.mainloop()
